@@ -1,7 +1,8 @@
 # Chord2Vec
 
 Word embedding using music chords instead of words. 
-The maining training code is modified from 
+I get the chords by converting midi files.
+The training algorithm code is modified from 
 https://github.com/chiphuyen/tf-stanford-tutorials/blob/master/examples/04_word2vec_visualize.py
 
 Description of files
