@@ -1,6 +1,11 @@
 # Chord2Vec
 
+Word embedding using music chords instead of words. 
+The maining training code is modified from 
+https://github.com/chiphuyen/tf-stanford-tutorials/blob/master/examples/04_word2vec_visualize.py
+
 Description of files
+
 1)'convert_midi.py' converts a directory of midi files into a text file with chords.
 It is used as ``$ python convert_midi.py 'midi_dir'``. By default, the output file is called 'data_as_words'.
 
@@ -8,10 +13,9 @@ It is used as ``$ python convert_midi.py 'midi_dir'``. By default, the output fi
 
 3)'train.py' will run the Skip-Gram model using by default the data in the folder 'data'. 
 
-4)'analy.ipyn' is a jupyter notebook which 
+4)'analyze.ipyn' is a jupyter notebook which shows some analysis. It also produces a random midi file by skipping around nearest neighbours.
 
-
-
+I used a vocabulary size of 500, and trained the model on about 11 million chords (from 150 MB of midi files) for about an hour using an embedding dimension of 32 and a skip window of 6
 ```
 most common chords are
 D : 451636
@@ -39,4 +43,56 @@ GbA : 119192
 DG : 117815
 DGbA : 116855
 DA : 116160
+```
+
+```
+closest to D : ['DBb', 'Eb', 'DG', 'DGb', 'Db']
+closest to G : ['B', 'E', 'GB', 'CG', 'DG']
+closest to A : ['DbA', 'Db', 'EA', 'DA', 'B']
+closest to C : ['CG', 'CBb', 'CE', 'CD', 'CF']
+closest to E : ['G', 'Db', 'EG', 'EB', 'C']
+closest to F : ['FBb', 'FAb', 'DF', 'Eb', 'Bb']
+closest to B : ['G', 'DB', 'Ab', 'DbB', 'Db']
+closest to Bb : ['EbBb', 'Ab', 'F', 'Eb', 'EbG']
+closest to Gb : ['DGb', 'GbB', 'G', 'DGbA', 'CGb']
+closest to Db : ['DbA', 'E', 'DbG', 'B', 'A']
+closest to Eb : ['EbG', 'F', 'Bb', 'EbA', 'CEb']
+closest to Ab : ['DAb', 'Bb', 'CAb', 'F', 'AbB']
+closest to EG : ['EGB', 'CEG', 'EB', 'CE', 'E']
+closest to CE : ['CEG', 'C', 'CG', 'CEF', 'EG']
+closest to CA : ['C', 'CFA', 'CGbA', 'CF', 'CGA']
+closest to DF : ['F', 'FBb', 'DFBb', 'Eb', 'Bb']
+closest to DB : ['B', 'DGB', 'DFB', 'DEB', 'GB']
+closest to GB : ['EGB', 'G', 'B', 'DGB', 'DB']
+closest to CEG : ['CE', 'CG', 'EG', 'C', 'CEBb']
+closest to FA : ['DFA', 'F', 'EFA', 'DF', 'CFA']
+closest to DGB : ['DB', 'GB', 'DEGB', 'DG', 'G']
+closest to GbA : ['DGbA', 'CGbA', 'Gb', 'DGb', 'GbB']
+closest to DG : ['G', 'DGbG', 'CDG', 'DBb', 'DGB']
+closest to DGbA : ['DGb', 'DA', 'GbA', 'DEGbA', 'Gb']
+closest to DA : ['DGbA', 'A', 'CDA', 'DFA', 'DAbA']
+closest to DGb : ['Gb', 'DGbA', 'DGbG', 'DGbB', 'GbB']
+closest to CG : ['C', 'CEG', 'CE', 'G', 'CDG']
+closest to GBb : ['DGBb', 'EbGBb', 'Bb', 'DBb', 'FGBb']
+closest to DBb : ['DGBb', 'Bb', 'GBb', 'D', 'FBb']
+closest to EA : ['A', 'DbA', 'E', 'CEA', 'EAB']
+closest to CFA : ['CF', 'F', 'C', 'CA', 'FBb']
+closest to DbE : ['DbDE', 'DbEB', 'Db', 'DbEG', 'E']
+closest to DbEA : ['EA', 'DbA', 'DbEGA', 'DbDEA', 'DbEFA']
+closest to DbA : ['Db', 'A', 'EA', 'DbGbA', 'DbG']
+closest to CEb : ['Eb', 'CEbF', 'C', 'Bb', 'CEbG']
+closest to CF : ['CFA', 'F', 'C', 'CFBb', 'CBb']
+closest to EbG : ['Eb', 'EbGBb', 'EbBb', 'Bb', 'CEbG']
+closest to DFBb : ['DFAbBb', 'FBb', 'Bb', 'DF', 'DFGBb']
+closest to EB : ['EGB', 'EAbB', 'EG', 'B', 'E']
+closest to DFA : ['FA', 'EFA', 'DA', 'DEFA', 'DFABb']
+closest to AbB : ['DAbB', 'FAbB', 'Ab', 'EAbB', 'CAbB']
+closest to EAb : ['EAbB', 'CEAb', 'Ab', 'DEAb', 'DbEAb']
+closest to FAb : ['F', 'CFAb', 'CAb', 'Ab', 'EbFAb']
+closest to CEA : ['CE', 'EA', 'CA', 'CEGbA', 'CEB']
+closest to FBb : ['F', 'Bb', 'CFBb', 'DF', 'DFBb']
+closest to EAbB : ['EAb', 'EB', 'AbB', 'EbEAbB', 'EGbAbB']
+closest to EbGBb : ['EbG', 'GBb', 'EbBb', 'EbGAbBb', 'Bb']
+closest to CAb : ['Ab', 'CFAb', 'EbAb', 'FAb', 'Bb']
+closest to DGBb : ['GBb', 'DBb', 'DGABb', 'DG', 'DFAbBb']
 ```
