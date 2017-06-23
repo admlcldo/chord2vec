@@ -1,4 +1,4 @@
-# Chord2Vec
+# Chord 2 Vec
 
 Word embedding using music chords instead of words. 
 I get the chords by converting midi files.
