@@ -1,3 +1,8 @@
+### 
+# this training code is modified from
+# https://github.com/chiphuyen/tf-stanford-tutorials/blob/master/examples/04_word2vec_visualize.py
+###
+
 import os
 import pickle
 import random
